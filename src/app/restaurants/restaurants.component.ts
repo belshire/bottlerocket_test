@@ -4,7 +4,7 @@ import { Restaurant } from './restaurant';
 import { RestaurantsService } from './restaurants.service';
 
 @Component({
-  selector: 'app-restaurant',
+  selector: 'app-restaurants',
   templateUrl: './restaurants.component.html',
   providers: [ RestaurantsService ],
   styleUrls: ['./restaurants.component.scss']
@@ -12,13 +12,13 @@ import { RestaurantsService } from './restaurants.service';
 export class RestaurantsComponent implements OnInit {
   restaurants: Restaurant[];
 
-  constructor() { }
+  constructor(private restaurantsService: RestaurantsService) { }
 
   ngOnInit() {
     this.getRestaurants();
   }
 
   getRestaurants(): void {
-    this.restrauntsService.getRestaurants().subscribe(restaurants => this.restaurants = restaurants);
+    this.restaurantsService.getRestaurants().subscribe(restaurants => this.restaurants = restaurants);
   }
 }
