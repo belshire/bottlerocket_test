@@ -23,6 +23,10 @@ export class RestaurantsComponent implements OnInit {
     this.restaurantsService.getRestaurants().subscribe(restaurants => this.restaurants = restaurants);
   }
 
+  getBackgroundURL(restaurant: Restaurant): string {
+    return `url("${restaurant.backgroundImageURL}")`;
+  }
+
   onClickRestaurant(index: number): void {
     this.currentRestaurant = this.restaurants[index];
   }

@@ -1,8 +1,16 @@
-<ul>
-  <li *ngFor="let restaurant of restaurants; let i = index;" (click)="onClickRestaurant(i)">
-    {{restaurant.name}}
-    {{restaurant.category}}
-  </li>
-</ul>
+<div class="restaurants row">
+  <ul class="restaurant-list col-12 col-md-4">
+    <li *ngFor="let restaurant of restaurants; let i = index;"
+        (click)="onClickRestaurant(i)"
+        [ngStyle]="{'background-image': getBackgroundURL(restaurant)}">
+      <div class="restaurant-info">
+        <p class="name">{{restaurant.name}}</p>
+        <p class="category">{{restaurant.category}}</p>
+      </div>
+    </li>
+  </ul>
 
-<app-restaurant-detail [restaurant]="currentRestaurant"></app-restaurant-detail>
+  <div class="restaurant-detail col-12 col-md-8">
+    <app-restaurant-detail [restaurant]="currentRestaurant"></app-restaurant-detail>
+  </div>
+</div>
