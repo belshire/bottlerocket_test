@@ -3,7 +3,7 @@
 </header>
 
 <div class="row no-gutters">
-  <div class="col-12">
-    <app-restaurants></app-restaurants>
-  </div>
+    <app-restaurants [restaurants]="restaurants" (restaurantChange)="changeRestaurant($event)" class="col-12 col-md-4"></app-restaurants>
+
+    <app-restaurant-detail *ngIf="currentRestaurant" [restaurant]="currentRestaurant" class="col-12 col-md-8"></app-restaurant-detail>
 </div>

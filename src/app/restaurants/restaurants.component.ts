@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 
 import { Restaurant } from '../restaurant';
-import { RestaurantsService } from './restaurants.service';
+import { RestaurantsService } from '../restaurants.service';
 
 @Component({
   selector: 'app-restaurants',
@@ -9,25 +9,18 @@ import { RestaurantsService } from './restaurants.service';
   providers: [ RestaurantsService ],
   styleUrls: ['./restaurants.component.scss']
 })
-export class RestaurantsComponent implements OnInit {
-  restaurants: Restaurant[];
-  currentRestaurant: Restaurant;
+export class RestaurantsComponent {
+  @Input() restaurants: Restaurant[];
+  @Output() restaurantChange = new EventEmitter<Number>();
 
-  constructor(private restaurantsService: RestaurantsService) { }
-
-  ngOnInit() {
-    this.getRestaurants();
-  }
-
-  getRestaurants(): void {
-    this.restaurantsService.getRestaurants().subscribe(restaurants => this.restaurants = restaurants);
-  }
+  constructor() { }
 
   getBackgroundURL(restaurant: Restaurant): string {
     return `url("${restaurant.backgroundImageURL}")`;
   }
 
   onClickRestaurant(index: number): void {
-    this.currentRestaurant = this.restaurants[index];
+    this.restaurantChange.emit(index);
   }
+
 }

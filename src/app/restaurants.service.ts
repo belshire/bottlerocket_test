@@ -4,7 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import {BehaviorSubject, Observable, throwError} from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 
-import { Restaurant } from '../restaurant';
+import { Restaurant } from './restaurant';
 
 const httpOptions = {
   headers: new HttpHeaders({

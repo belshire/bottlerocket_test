@@ -1,21 +1,27 @@
-.restaurants {
-  .restaurant-list {
+.restaurant-list {
+  padding: 0;
+  margin: 0;
 
-    li {
-      position: relative;
-      color: white;
-      display: block;
-      height: 180px;
-      list-style-type: none;
-      -webkit-background-size: cover;
-      background-size: cover;
-      cursor: pointer;
+  li {
+    position: relative;
+    color: white;
+    display: block;
+    height: 180px;
+    list-style-type: none;
+    cursor: pointer;
 
-      .restaurant-info {
+    .restaurant-info {
+      background-image: url('../../assets/cellGradientBackground@2x.png');
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+
+      div {
         position: absolute;
         bottom: 6px;
-        left: 0;
-        margin-left: 12px;
+        left: 12px;
 
         p {
           margin: 0;
