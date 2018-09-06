@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Restaurant } from './restaurant';
+import { Restaurant } from '../restaurant';
 import { RestaurantsService } from './restaurants.service';
 
 @Component({
@@ -11,6 +11,7 @@ import { RestaurantsService } from './restaurants.service';
 })
 export class RestaurantsComponent implements OnInit {
   restaurants: Restaurant[];
+  currentRestaurant: Restaurant;
 
   constructor(private restaurantsService: RestaurantsService) { }
 
@@ -20,5 +21,9 @@ export class RestaurantsComponent implements OnInit {
 
   getRestaurants(): void {
     this.restaurantsService.getRestaurants().subscribe(restaurants => this.restaurants = restaurants);
+  }
+
+  onClickRestaurant(index: number): void {
+    this.currentRestaurant = this.restaurants[index];
   }
 }

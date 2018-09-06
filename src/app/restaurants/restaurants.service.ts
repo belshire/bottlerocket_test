@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-import { Observable, throwError } from 'rxjs';
+import {BehaviorSubject, Observable, throwError} from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 
-import { Restaurant } from './restaurant';
+import { Restaurant } from '../restaurant';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -20,7 +20,7 @@ export class RestaurantsService {
 
   }
 
-  getRestaurants (): Observable<Restaurant[]> {
+  getRestaurants(): Observable<Restaurant[]> {
     return this.http.get(this.restaurantURL).pipe(
       map((data: any) => {
         return data.restaurants;

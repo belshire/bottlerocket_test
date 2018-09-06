@@ -1,6 +1,8 @@
 <ul>
-  <li *ngFor="let restaurant of restaurants">
+  <li *ngFor="let restaurant of restaurants; let i = index;" (click)="onClickRestaurant(i)">
     {{restaurant.name}}
     {{restaurant.category}}
   </li>
 </ul>
+
+<app-restaurant-detail [restaurant]="currentRestaurant"></app-restaurant-detail>
