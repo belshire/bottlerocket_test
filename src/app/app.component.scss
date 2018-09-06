@@ -1,5 +1,7 @@
+@import '../_variables.scss';
+
 header {
-  background-color: #43E895;
+  background-color: $secondary-color;
   color: white;
   font-size: 17px;
   text-align: center;

@@ -1,15 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import '~bootstrap/scss/bootstrap';
+@import './_variables.scss';
 
-$link-color: #2a2a2a;
-
+html,
+body {
+  height: 100%;
+}
 
 body {
   padding-top: 57px;
-  color: #2A2A2A;
+  color: $primary-color;
   font-size: 16px;
-  font-family: "Avenir Next"
+  font-family: "Avenir Next";
 }
 
 a:link,
@@ -20,5 +23,9 @@ a:active {
 }
 
 h1 {
-  font-weight: 600;
+  font-weight: $bold-weight;
+}
+
+h2 {
+  font-weight: normal;
 }

@@ -1,22 +1,28 @@
-<div class="restaurant-detail">
-  <div #gmap id="restaurant-map">
-
-  </div>
-
-  <div *ngIf="restaurant">
-    <div class="restaurant-header">
-      <h1>{{restaurant.name}}</h1>
-      <h2>{{restaurant.category}}</h2>
+<div class="restaurant-detail d-flex flex-column">
+  <div class="container-fluid">
+    <div class="row">
+      <div #gmap id="restaurant-map"></div>
     </div>
 
-    <ul class="restaurant-address">
-      <li>{{restaurant.location.formattedAddress[0]}}</li>
-      <li>{{restaurant.location.formattedAddress[1]}}</li>
-    </ul>
+    <div class="restaurant-header row">
+      <div class="col my-auto">
+        <h1>{{restaurant.name}}</h1>
+        <h2>{{restaurant.category}}</h2>
+      </div>
+    </div>
 
-    <div class="restaurant-contact" *ngIf="restaurant.contact">
-      <p *ngIf="restaurant.contact.formattedPhone">{{restaurant.contact.formattedPhone}}</p>
-      <p *ngIf="restaurant.contact.twitter"><a href="https://twitter.com/{{restaurant.contact.twitter}}" target="_blank">@{{restaurant.contact.twitter}}</a></p>
+    <div class="row">
+      <div class="col">
+        <ul class="restaurant-address">
+          <li>{{restaurant.location.formattedAddress[0]}}</li>
+          <li>{{restaurant.location.formattedAddress[1]}}</li>
+        </ul>
+
+        <div class="restaurant-contact" *ngIf="restaurant.contact">
+          <p *ngIf="restaurant.contact.formattedPhone">{{restaurant.contact.formattedPhone}}</p>
+          <p *ngIf="restaurant.contact.twitter"><a href="https://twitter.com/{{restaurant.contact.twitter}}" target="_blank">@{{restaurant.contact.twitter}}</a></p>
+        </div>
+      </div>
     </div>
   </div>
 </div>

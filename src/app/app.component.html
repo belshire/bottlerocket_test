@@ -2,7 +2,7 @@
   <span class="navbar-text mx-auto">{{ title }}</span>
 </header>
 
-<div class="row no-gutters">
+<div class="row no-gutters h-100">
     <app-restaurants [restaurants]="restaurants" (restaurantChange)="changeRestaurant($event)" class="col-12 col-md-4"></app-restaurants>
 
     <app-restaurant-detail *ngIf="currentRestaurant" [restaurant]="currentRestaurant" class="col-12 col-md-8"></app-restaurant-detail>
