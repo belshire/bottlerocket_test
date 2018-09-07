@@ -11,12 +11,14 @@ import {Restaurant} from './restaurant';
 export class AppComponent implements OnInit {
   restaurants: Restaurant[];
   currentRestaurant: Restaurant;
+  restaurantDetailOpen: boolean;
   title: String = 'Lunch Tyme';
 
   constructor(private restaurantsService: RestaurantsService) { }
 
   ngOnInit() {
     this.getRestaurants();
+    this.restaurantDetailOpen = false;
   }
 
   getRestaurants(): void {
@@ -25,6 +27,10 @@ export class AppComponent implements OnInit {
 
   changeRestaurant(index): void {
     this.currentRestaurant = this.restaurants[index];
+    this.restaurantDetailOpen = true;
   }
 
+  closeRestaurantDetail(): void {
+    this.restaurantDetailOpen = false;
+  }
 }

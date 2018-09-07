@@ -22,11 +22,27 @@ export class RestaurantDetailComponent implements OnInit, AfterContentInit, OnCh
   }
 
   ngOnChanges() {
-    if (this.restaurant && this.map) {
+    this.setMapLocation();
+  }
+
+  ngAfterContentInit() {
+    this.setMapLocation();
+  }
+
+  setMapLocation() {
+    if (this.restaurant) {
       const location = new google.maps.LatLng(this.restaurant.location.lat, this.restaurant.location.lng);
 
-      this.map.setCenter(location);
-      this.map.setZoom(15);
+      if (!this.map) {
+        this.map = new google.maps.Map(this.gmapElement.nativeElement, {
+          center: location,
+          zoom: 15,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        });
+      } else {
+        this.map.setCenter(location);
+        this.map.setZoom(15);
+      }
 
       if (!this.marker) {
         this.marker = new google.maps.Marker({
@@ -39,13 +55,5 @@ export class RestaurantDetailComponent implements OnInit, AfterContentInit, OnCh
         this.marker.setTitle(this.restaurant.name);
       }
     }
-  }
-
-  ngAfterContentInit() {
-    this.map = new google.maps.Map(this.gmapElement.nativeElement, {
-      center: new google.maps.LatLng(32.7767, -96.7970),
-      zoom: 15,
-      mapTypeId: google.maps.MapTypeId.ROADMAP
-    });
   }
 }

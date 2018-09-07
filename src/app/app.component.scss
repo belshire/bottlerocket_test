@@ -1,8 +1,56 @@
-@import '../_variables.scss';
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+@import '~bootstrap/scss/mixins';
+@import '../styles/variables';
+@import '../styles/mixins';
+
+.icon {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background-size: 30px 30px;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.icon-back {
+  background-image: url("../assets/ic_webBack@2x.png");
+  background-size: 13px 25px;
+}
+
+.icon-map {
+  background-image: url("../assets/icon_map@2x.png");
+}
 
 header {
   background-color: $secondary-color;
   color: white;
   font-size: 17px;
   text-align: center;
+
+  a {
+    width: 30px;
+  }
+}
+
+app-restaurant-detail {
+  position: absolute;
+  top: 57px;
+  left: 100%;
+  bottom: 0;
+  background-color: white;
+  @include transition(left .3s ease);
+
+  &.open {
+    left: 0;
+  }
+}
+
+@include media-breakpoint-up(md) {
+  app-restaurant-detail {
+    position: relative;
+    top: auto;
+    left: auto;
+    bottom: auto;
+  }
 }

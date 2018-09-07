@@ -1,4 +1,7 @@
-@import '../../_variables.scss';
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+@import '~bootstrap/scss/mixins';
+@import '../../styles/variables';
 
 .restaurant-detail {
   width: 100%;
@@ -31,6 +34,14 @@
     li {
       padding: 0;
       list-style-type: none;
+    }
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .restaurant-detail {
+    #restaurant-map {
+      height: 360px;
     }
   }
 }

@@ -1,9 +1,19 @@
 <header class="navbar fixed-top col-12">
+  <a class="d-md-none close-restaurant"
+     (click)="closeRestaurantDetail()">
+    <i class="icon icon-back"
+       [hidden]="!restaurantDetailOpen"></i>
+  </a>
+
   <span class="navbar-text mx-auto">{{ title }}</span>
+
+  <a class="d-md-none">
+    <i class="icon icon-map"></i>
+  </a>
 </header>
 
 <div class="row no-gutters h-100">
     <app-restaurants [restaurants]="restaurants" (restaurantChange)="changeRestaurant($event)" class="col-12 col-md-4"></app-restaurants>
 
-    <app-restaurant-detail *ngIf="currentRestaurant" [restaurant]="currentRestaurant" class="col-12 col-md-8"></app-restaurant-detail>
+    <app-restaurant-detail *ngIf="currentRestaurant" [restaurant]="currentRestaurant" class="col-md-8" [ngClass]="{'open': restaurantDetailOpen}"></app-restaurant-detail>
 </div>
