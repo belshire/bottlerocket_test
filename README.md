@@ -66,3 +66,8 @@ Feel free to enhance the Map as you see fit. Suggestions include: Placing marker
 ## Browser Support
 
 Not everyone has personal access to Apple, Microsoft, and Google hardware and software. For this reason we ask that you pick one mobile and one desktop operating system and browser combination to fully support. For example if you own a Mac and an iPhone, you can choose OSX Chrome, and iOS Safari. If you own a PC and an Android phone, you can support Firefox for Windows and Android Chrome. Ideally we're looking for feature parity and bug-free code on all platforms, but know that you won't be penalized for a bug on a device you don't have access to. Bottle Rocket will simply prioritize the platforms you specify over the remainders. If you have any questions or concerns, don't hesitate to ask us!
+
+# Assumptions
+
+* User would have the Avenir font installed on their machine.
+* Testing was done on Safari on iPad/iPhone X. Mac Chrome and Mac Safari 
